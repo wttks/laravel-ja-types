@@ -1,0 +1,31 @@
+{
+    "name": "wttks/laravel-ja-types",
+    "description": "日本固有の値オブジェクト・バリデーションルール（郵便番号・電話番号・法人番号・銀行口座）",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2",
+        "laravel/framework": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.0",
+        "orchestra/testbench": "^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wttks\\JaTypes\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wttks\\JaTypes\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Wttks\\JaTypes\\JaTypesServiceProvider"
+            ]
+        }
+    }
+}
