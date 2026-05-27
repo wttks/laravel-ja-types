@@ -43,4 +43,11 @@ class PhoneNumberTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         PhoneNumber::of('012345678');
     }
+
+    public function test_fromStorage_は検証なしで正準値をそのまま保持する(): void
+    {
+        $p = PhoneNumber::fromStorage('03-1234-5678');
+        $this->assertSame('03-1234-5678', $p->value());
+        $this->assertSame('0312345678', $p->digits());
+    }
 }

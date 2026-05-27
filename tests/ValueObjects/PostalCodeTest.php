@@ -55,4 +55,11 @@ class PostalCodeTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         PostalCode::of('');
     }
+
+    public function test_fromStorage_は検証なしで正準値をそのまま保持する(): void
+    {
+        $p = PostalCode::fromStorage('1234567');
+        $this->assertSame('1234567', $p->value());
+        $this->assertSame('123-4567', $p->formatted());
+    }
 }

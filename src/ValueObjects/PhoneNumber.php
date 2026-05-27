@@ -37,6 +37,17 @@ final class PhoneNumber
         return new self($v);
     }
 
+    /**
+     * 保存済み（既に検証・正規化済み）の正準値から検証なしで復元する。
+     *
+     * DB 等の信頼できるソースからの再構成（reconstitution）専用。
+     * 表示のたびに of() の検証・正規化を走らせないための軽量パス。
+     */
+    public static function fromStorage(string $value): self
+    {
+        return new self($value);
+    }
+
     /** ハイフン区切り形式で返す（例: 03-1234-5678） */
     public function value(): string
     {
